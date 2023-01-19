@@ -21,9 +21,18 @@ spec:
       - image: jenkins/jenkins:lts-jdk11
         name: jenkins
         volumeMounts:
-        - mountPath: /var/jenkins_home3
-          name: jenkins-home
+        - mountPath: /var/jenkins_home5
+          name: jenkins-home2
         securityContext:
           allowPrivilegeEscalation: false
         ports:
         - containerPort: 8080
+  volumeClaimTemplates:
+  - metadata:
+      name: jenkins-home2
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: "local-storage"
+      resources:
+        requests:
+          storage: 1Gi
