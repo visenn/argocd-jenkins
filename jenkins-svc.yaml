@@ -3,9 +3,13 @@ kind: Service
 metadata:
   name: jenkins
 spec:
+  type: LoadBalancer
   ports:
   - port: 7780
     targetPort: 80
-    nodePort: 30008
   selector:
     app: jenkins
+status:
+  loadBalancer:
+    ingress:
+    - ip: 127.0.0.1
