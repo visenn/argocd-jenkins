@@ -17,7 +17,6 @@ spec:
       - name: jenkins-home
         hostPath:
           path: /home/gen/container-jenkins-home
-          type: Directory
       containers:
       - image: jenkins/jenkins:lts-jdk11
         name: jenkins
