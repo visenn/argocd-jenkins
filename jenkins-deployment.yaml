@@ -13,10 +13,6 @@ spec:
       labels:
         app: jenkins
     spec:
-      securityContext:
-        runAsUser: 1001
-        runAsGroup: 1001
-        fsGroup: 1001
       volumes:
       - name: jenkins-home
         hostPath:
@@ -27,7 +23,5 @@ spec:
         volumeMounts:
         - mountPath: /mnt
           name: jenkins-home
-        securityContext:
-          allowPrivilegeEscalation: false
         ports:
         - containerPort: 8080
