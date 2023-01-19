@@ -9,7 +9,3 @@ spec:
     targetPort: 8080
   selector:
     app: jenkins
-status:
-  loadBalancer:
-    ingress:
-    - ip: 127.0.0.1
