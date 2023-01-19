@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: jenkins
+  labels:
+    name: jenkins-home
 spec:
   replicas: 1
   revisionHistoryLimit: 3
@@ -20,19 +22,12 @@ spec:
       containers:
       - image: jenkins/jenkins:lts-jdk11
         name: jenkins
-        volumeMounts:
-        - mountPath: /var/jenkins_home5
-          name: jenkins-home2
-        securityContext:
-          allowPrivilegeEscalation: false
         ports:
-        - containerPort: 8080
-  volumeClaimTemplates:
-  - metadata:
-      name: jenkins-home2
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      storageClassName: "local-storage"
-      resources:
-        requests:
-          storage: 1Gi
+        - containerPort: 8080        
+        volumeMounts:
+          - name: local-persistent-storage
+            mountPath: /mnt
+      volumes:
+        - name: local-persistent-storage
+          persistentVolumeClaim:
+            claimName: jenkins-home-pvc
