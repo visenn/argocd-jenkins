@@ -6,6 +6,6 @@ spec:
   ports:
   - port: 7780
     targetPort: 80
+    nodePort: 30008
   selector:
     app: jenkins
-  type: LoadBalancer
