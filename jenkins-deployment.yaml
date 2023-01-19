@@ -13,7 +13,6 @@ spec:
       labels:
         app: jenkins
     spec:
-      restartPolicy: Never
       containers:
       - image: jenkins/jenkins:lts-jdk11
         name: jenkins
