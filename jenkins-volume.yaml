@@ -4,3 +4,5 @@ metadata:
   name: jenkins-home
 provisioner: kubernetes.io/no-provisioner
 volumeBindingMode: WaitForFirstConsumer
+capacity: 1Gi
+persistentVolumeReclaimPolicy: Retain
