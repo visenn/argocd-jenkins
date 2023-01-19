@@ -14,11 +14,13 @@ spec:
         app: jenkins
     spec:
       securityContext:
-        fsGroup: 1000
+        runAsUser: 1001
+        runAsGroup: 1001
+        fsGroup: 1001
       volumes:
       - name: jenkins-home
         hostPath:
-          path: /home/gen/container-jenkins-home
+          path: /home/jenkins
       containers:
       - image: jenkins/jenkins:lts-jdk11
         name: jenkins
