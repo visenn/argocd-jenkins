@@ -27,3 +27,10 @@ spec:
         - name: local-persistent-storage
           persistentVolumeClaim:
             claimName: jenkins-home-pvc
+      initContainers:
+      - image: busybox
+        name: init-jenkins-vol
+        command: ['sh', '-c', 'chown -R 1000:1000 /mnt']
+        volumeMounts:
+          - name: local-persistent-storage
+            mountPath: /mnt
