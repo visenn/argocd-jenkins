@@ -3,9 +3,9 @@ kind: Service
 metadata:
   name: jenkins
 spec:
-  type: loadBalancer
   ports:
-  - port: 80
+  - port: 7780
     targetPort: 80
   selector:
     app: jenkins
+  type: loadBalancer
