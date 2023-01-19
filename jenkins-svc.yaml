@@ -6,7 +6,7 @@ spec:
   type: LoadBalancer
   ports:
   - port: 7780
-    targetPort: 80
+    targetPort: 8080
   selector:
     app: jenkins
 status:
