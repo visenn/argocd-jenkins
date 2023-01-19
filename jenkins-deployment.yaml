@@ -25,7 +25,7 @@ spec:
       - image: jenkins/jenkins:lts-jdk11
         name: jenkins
         volumeMounts:
-        - mountPath: /var/jenkins_home2
+        - mountPath: /mnt
           name: jenkins-home
         securityContext:
           allowPrivilegeEscalation: false
