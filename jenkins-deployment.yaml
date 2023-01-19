@@ -5,7 +5,6 @@ metadata:
 spec:
   replicas: 1
   revisionHistoryLimit: 3
-  restartPolicy: Never
   selector:
     matchLabels:
       app: jenkins
@@ -14,6 +13,7 @@ spec:
       labels:
         app: jenkins
     spec:
+      restartPolicy: Never
       containers:
       - image: jenkins/jenkins:lts-jdk11
         name: jenkins
