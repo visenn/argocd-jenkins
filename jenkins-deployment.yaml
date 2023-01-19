@@ -17,10 +17,6 @@ spec:
         runAsUser: 1000
         runAsGroup: 1000
         fsGroup: 1000
-      volumes:
-      - name: jenkins-home
-        hostPath:
-          path: /home/jenkins
       containers:
       - image: jenkins/jenkins:lts-jdk11
         name: jenkins
