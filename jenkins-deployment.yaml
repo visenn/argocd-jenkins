@@ -17,4 +17,4 @@ spec:
       - image: jenkins/jenkins:lts-jdk11
         name: jenkins
         ports:
-        - containerPort: 80
+        - containerPort: 8080
