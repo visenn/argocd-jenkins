@@ -16,9 +16,13 @@ spec:
       volumes:
       - name: jenkins-home
         hostPath:
-          path: /var/jenkins_home
+          path: /
+        type: Directory
       containers:
       - image: jenkins/jenkins:lts-jdk11
         name: jenkins
+        volumeMounts:
+        - mountPath: /home/gen
+          name: jenkins-home
         ports:
         - containerPort: 8080
